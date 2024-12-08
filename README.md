@@ -1,7 +1,3 @@
-Here’s your **React/JSX Style Guide** formatted like the **Next.js Style Guide** for consistency:
-
----
-
 # **⚛️ React/JSX Style Guide**
 
 ## Table of Contents
