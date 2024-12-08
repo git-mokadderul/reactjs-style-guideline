@@ -1,54 +1,87 @@
-# React/JSX Style Guide
+Here’s your **React/JSX Style Guide** formatted like the **Next.js Style Guide** for consistency:
+
+---
+
+# **⚛️ React/JSX Style Guide**
 
 ## Table of Contents
 
+### **Core Concepts**
+
 1. [Basic Rules](#basic-rules)
-1. [Component definition](#component-definition)
-1. [Project organization](#project-organization)
-1. [Class vs `React.createClass` vs stateless](#class-vs-reactcreateclass-vs-stateless)
-1. [Mixins](#mixins)
-1. [Naming](#naming)
-1. [Declaration](#declaration)
-1. [Alignment](#alignment)
-1. [Quotes](#quotes)
-1. [Spacing](#spacing)
-1. [Props](#props)
-1. [Refs](#refs)
-1. [Parentheses](#parentheses)
-1. [Tags](#tags)
-1. [Methods](#methods)
-1. [Ordering](#ordering)
-1. [`isMounted`](#ismounted)
-1. [Use ES6 classes.](#use-es2015-classes)
-1. [Component method and property ordering](#component-method-and-property-ordering)
-1. [Name handlers handleEventName.](#name-handlers-handleeventname)
-1. [Name handlers in props onEventName.](#name-handlers-in-props-oneventname)
-1. [Open elements on the same line.](#open-elements-on-the-same-line)
-1. [Align and sort HTML properties.](#align-and-sort-html-properties)
-1. [Only export a single react class.](#only-export-a-single-react-class)
-1. [Make "presentation" components pure.](#make-presentation-components-pure)
-1. [Prefer <a href="http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#what-components-should-have-state">props to state</a>.](#prefer-props-to-state)
-1. [<em>Never</em> store state in the DOM.](#never-store-state-in-the-dom)
-1. [Use Flow instead of PropTypes](#use-flow-instead-of-proptypes)
-1. [Annotate `children`](#annotate-children)
-1. [Props must be plain JSON](#props-must-be-plain-json)
-1. [Pure functions of props and state](#pure-functions-of-props-and-state)
-1. [Side effect free until `componentDidMount`](#side-effect-free-until-componentdidmount)
-1. [Do not use Backbone models.](#do-not-use-backbone-models)
-1. [Minimize use of jQuery.](#minimize-use-of-jquery)
-1. [Reuse standard components.](#reuse-standard-components)
-1. [80 columns, soft tabs of 2 spaces](#80-columns-soft-tabs-of-2-spaces)
-1. [Camel case instead of dash-case for class names](#camel-case-instead-of-dash-case-for-class-names)
-1. [Never use ID and tag name as root selectors!](#never-use-id-and-tag-name-as-root-selectors)
-1. [When using multiple selectors, give each selector its own line](#when-using-multiple-selectors-give-each-selector-its-own-line)
-1. [Break lines in CSS function arguments](#break-lines-in-css-function-arguments)
-1. [When writing rules, be sure to](#when-writing-rules-be-sure-to)
-1. [The parent constrains the child](#the-parent-constrains-the-child)
-1. [The parent doesn't assume child structure](#the-parent-doesnt-assume-child-structure)
-1. [Components never leak margin](#components-never-leak-margin)
-1. [The parent spaces the children](#the-parent-spaces-the-children)
-1. [Nested classes aren't for providing scope](#nested-classes-arent-for-providing-scope)
-1. [Variables, lots of variables!](#variables-lots-of-variables)
+2. [Component Definition](#component-definition)
+3. [Project Organization](#project-organization)
+4. [Class vs `React.createClass` vs Stateless](#class-vs-reactcreateclass-vs-stateless)
+5. [Mixins](#mixins)
+
+### **Code Style and Naming**
+
+6. [Naming](#naming)
+7. [Declaration](#declaration)
+8. [Alignment](#alignment)
+9. [Quotes](#quotes)
+10. [Spacing](#spacing)
+
+### **Components and Props**
+
+11. [Props](#props)
+12. [Refs](#refs)
+13. [Parentheses](#parentheses)
+14. [Tags](#tags)
+15. [Methods](#methods)
+
+### **Best Practices**
+
+16. [Ordering](#ordering)
+17. [`isMounted`](#ismounted)
+18. [Use ES6 Classes](#use-es6-classes)
+19. [Component Method and Property Ordering](#component-method-and-property-ordering)
+20. [Name Handlers `handleEventName`](#name-handlers-handleeventname)
+21. [Name Handlers in Props `onEventName`](#name-handlers-in-props-oneventname)
+22. [Open Elements on the Same Line](#open-elements-on-the-same-line)
+23. [Align and Sort HTML Properties](#align-and-sort-html-properties)
+24. [Only Export a Single React Class](#only-export-a-single-react-class)
+25. [Make Presentation Components Pure](#make-presentation-components-pure)
+26. [Prefer Props to State](#prefer-props-to-state)
+27. [Never Store State in the DOM](#never-store-state-in-the-dom)
+
+### **Type Safety and State Management**
+
+28. [Use Flow Instead of PropTypes](#use-flow-instead-of-proptypes)
+29. [Annotate `children`](#annotate-children)
+30. [Props Must Be Plain JSON](#props-must-be-plain-json)
+31. [Pure Functions of Props and State](#pure-functions-of-props-and-state)
+
+### **Lifecycle and Effects**
+
+32. [Side Effect Free Until `componentDidMount`](#side-effect-free-until-componentdidmount)
+
+### **Libraries and Tools**
+
+33. [Do Not Use Backbone Models](#do-not-use-backbone-models)
+34. [Minimize Use of jQuery](#minimize-use-of-jquery)
+35. [Reuse Standard Components](#reuse-standard-components)
+
+### **Styling**
+
+36. [80 Columns, Soft Tabs of 2 Spaces](#80-columns-soft-tabs-of-2-spaces)
+37. [Camel Case Instead of Dash-Case for Class Names](#camel-case-instead-of-dash-case-for-class-names)
+38. [Never Use ID and Tag Name as Root Selectors](#never-use-id-and-tag-name-as-root-selectors)
+39. [When Using Multiple Selectors, Give Each Selector Its Own Line](#when-using-multiple-selectors-give-each-selector-its-own-line)
+40. [Break Lines in CSS Function Arguments](#break-lines-in-css-function-arguments)
+41. [When writing rules, be sure to](#when-writing-rules-be-sure-to)
+
+### **Parent-Child Relationships**
+
+42. [The Parent Constrains the Child](#the-parent-constrains-the-child)
+43. [The Parent Doesn’t Assume Child Structure](#the-parent-doesnt-assume-child-structure)
+44. [Components Never Leak Margin](#components-never-leak-margin)
+45. [The Parent Spaces the Children](#the-parent-spaces-the-children)
+
+### **CSS Best Practices**
+
+46. [Nested Classes Aren’t for Providing Scope](#nested-classes-arent-for-providing-scope)
+47. [Variables, Lots of Variables!](#variables-lots-of-variables)
 
 ---
 
